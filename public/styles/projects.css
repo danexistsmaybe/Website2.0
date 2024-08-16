@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@100.5,200..900&display=swap');
+#projects {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 10vh 0vw;
+	border: solid 0px white;
+}
+
+.projectrow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 20vh;
+}
+
+.project {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+} 
+
+.projecttitle {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-style: italic;
+	font-size: 48px;
+	color:aliceblue;
+}
+
+.projectimage {
+	width: 15vw;
+	height: 15vw;
+    object-fit: cover; /* Crop the image to fill the container */
+}
+
+.projectskills {
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+	margin: 1px;
+}
+
+.projectskill {
+	border: 1px solid lightgreen;
+	border-radius: 10px;
+	color: lightgreen;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+
+	padding: 3px;
+	margin: 0 2px;
+}
+
+.projectsource {
+	width: 15vw; 
+    height: 3vw; 
+    background-color: rgba(0,0,0,0); 
+	border: 2px solid white;
+	border-radius: 5px;
+
+	font-family: 'inconsolata';
+	font-size: 24px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.projectsource:hover {
+	cursor: pointer;
+	text-shadow: 2px 2px 15px white;
+}

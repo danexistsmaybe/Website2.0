@@ -1,0 +1,38 @@
+.mainattraction {
+	margin: 20vh 20vw;
+	display: flex;
+	flex-direction: row;
+}
+
+#graphic {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(0,0,0,0);
+}
+
+.welcometext {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.big {
+	font-size: 60px;
+	color: rgb(171, 237, 255);
+}
+
+.scroller {
+	width: 120vw;
+	height: 100vh;
+	overflow-y: scroll; 
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	pointer-events: auto;
+}
+
+.scrollercontent {
+	height: 1000000vh;
+	width: 2px;
+}

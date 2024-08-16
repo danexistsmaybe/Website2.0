@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@100.5,200..900&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.bg {
+	position: fixed;
+	z-index: -5;
+	width: 100vw;
+	height: 100vh;
+	background-color: #f5f5dc; /* Base color for a construction paper look */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.08));
+    background-blend-mode: multiply;
+    background-size: 300px 300px;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+	top: 0;
+	left: 0;
+}
+
+#bg-poemview {
+	position: fixed;
+	width: 100%;
+	height:400vh;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	background-image: linear-gradient(150deg,rgb(0, 78, 117),rgb(0, 100, 180),rgb(0, 70, 140),rgb(0, 105, 150),rgb(10, 50, 120),rgb(15, 40, 100),rgb(25, 25, 80),rgb(25, 25, 80));
+	opacity: 1;
+}
+
+#bgoverlay-poemview {
+	position: fixed;
+	width: 100%;
+	height:400vh;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background-image: linear-gradient(160deg,rgb(0, 80, 120),rgb(0, 100, 180),rgb(0, 70, 140),rgb(0, 105, 150),rgb(10, 50, 120),rgb(15, 40, 100),rgb(25, 25, 80),rgb(25, 25, 80));
+	opacity: .8;
+}
+
+.bgoverlay {
+	position: fixed;
+	z-index: -3;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(2, 0, 35, 0.0);
+	top: 0;
+	left: 0;
+}
+
+p, a, span, div, h1, ul, ol {
+	color: rgb(16, 0, 108);
+	font-family: 'inconsolata';
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+	display: flex;
+    justify-content: space-between; /* Distribute space between children */
+    align-items: center;    /* Align items vertically in the center */
+    padding: 10px 40px; 
+}
+
+.navleft, .navright {
+    display: flex;          /* Use flexbox to align items within these containers */
+}
+
+.navitem {
+	font-weight: 900;
+	font-size: 35px;
+	padding: 5px 20px;
+}
+
+.navitem:hover {
+	text-shadow: 3px 3px rgb(10, 118, 0);
+	/*text-shadow: 2px 2px 20px white;*/
+}
+
+/* poetry */
+#poems {
+	margin: 10vh 15vw;
+}
+
+.poemitem:hover {
+	font-weight: 700;
+}
+
+.poemtitle {
+	font-size: 36px;
+	font-family: garamond, serif;
+	font-weight: bold;
+}
+
+.poemtext {
+	font-size: 20px;
+	font-family: garamond, serif;
+}
+
+#poemviewer {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	width: 70vw;
+	margin: 5vh 15vw;
+	flex: 1;
+}

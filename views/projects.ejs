@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome</title>
+    <link rel='stylesheet' href='/styles/theme.css' />
+	<link rel="stylesheet" href="/styles/projects.css" />
+  </head>
+  <body>
+    <%- include('bits/navbar.ejs') %>
+	<div class="bg"></div>
+	<div class="bgoverlay"></div>
+	
+	<div id="projects">
+
+	</div>
+
+	<script type="text/javascript">
+		fetch('https://danexistsmaybe.github.io/projects.json')
+		.then(response => {
+			if (!response.ok) { 
+				throw new Error('Network response was not ok ' + response.statusText);
+			}
+			return response.json();  
+		})
+		.then(data => {
+			// Use the parsed JSON data here
+			var towrite = "";
+			var rowlength = 2;
+			for (var i=0; i<data.length; i+=2) {
+				var rowhtml = "<div class='projectrow'>";
+				for (var p=0; p<rowlength && i+p<data.length; p++) {
+					rowhtml += "<div class='project'>";
+					rowhtml += "<span class='projecttitle'>"+data[i+p]["title"]+"</span>";
+					rowhtml += "<image class='projectimage' src='"+data[i+p]["image"]+"' />";
+					rowhtml += "<div class='projectskills'>";
+					data[i+p]["skills"].forEach(skill => { rowhtml += "<div class='projectskill'>"+skill+"</div>"; });
+					rowhtml += "</div><a href='"+data[i+p]["link"]+"'>";
+					rowhtml += "<div class='projectsource'>view source</div></a></div>";
+				}
+
+				towrite+=rowhtml+"</div>";
+			}
+			document.getElementById("projects").innerHTML = towrite;
+		})
+		.catch(error => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
+	</script>
+
+  
+  </body>
+</html>

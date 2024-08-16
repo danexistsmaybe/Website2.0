@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome</title>
+    <link rel='stylesheet' href='/styles/theme.css' />
+	<link rel="stylesheet" href="/styles/index.css" />
+  </head>
+  <body>
+    <%- include('bits/navbar.ejs') %>
+	<div class="bg"></div>
+	<div class="bgoverlay"></div>
+	
+	<div class="mainattraction">
+		<div class="graphic">
+			<div id="graphic"></div>
+		</div>
+		<div class="welcometext">
+			<span class="big">hello.</span>
+			<span>i am daniel, the solution to all your programming needs. check out my projects and poetry in the navbar above, and, if you haven't yet, try scrolling anywhere on this page.</span>
+		</div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 200 / 200, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({alpha: true});
+        renderer.setSize(200, 200);
+        document.getElementById('graphic').appendChild(renderer.domElement);
+
+        // Create a torus geometry
+        const geometry = new THREE.TorusGeometry(1.5, .7, 16, 100);
+        // Create a shaded material
+        const material = new THREE.MeshStandardMaterial({
+            color: 0xf5e9cC,
+            roughness: .6,
+            metalness: 0
+        });
+        const torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+
+        // Add a light
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+
+        // Position the camera
+        camera.position.z = 5;
+		renderer.render(scene, camera);
+
+		
+		function animate(event) {
+			console.log("MOVING!!!!");
+
+			if (event.deltaY < 0) {
+                // Rotate the torus for some animation
+				torus.rotation.x += 0.1;
+				torus.rotation.y += 0.1;
+            } else if (event.deltaY > 0) {
+                // Rotate the torus for some animation
+				torus.rotation.x -= 0.1;
+				torus.rotation.y -= 0.1;
+            }
+            
+
+            renderer.render(scene, camera);
+		}
+
+		window.addEventListener('wheel', animate);
+
+        // Handle resizing
+        window.addEventListener('resize', () => {
+            const width = document.querySelector('.container').clientWidth;
+            const height = document.querySelector('.container').clientHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix(); // Update the camera's projection matrix to match the new aspect ratio
+        });
+    </script>
+  </body>
+</html>

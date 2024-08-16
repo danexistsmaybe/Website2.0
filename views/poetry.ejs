@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Poetry</title>
+    <link rel='stylesheet' href='/styles/poetrytheme.css' />
+  </head>
+  <body>
+    <%- include('bits/navbar.ejs') %>
+	<div class="bg"></div>
+	<div class="bgoverlay"></div>
+	<ol id="poems"></ol>
+  	<script>
+		
+		let towrite="";
+		fetch("https://danexistsmaybe.github.io/poems.txt")
+		.then((res) => res.text())
+		.then((text) => {
+			for (let poem in text.split('__TITLE__')) {
+				if (poem==0) continue;
+				towrite += ("<li><a class='poemitem' href=\"/poetry/viewpoem?title=" + text.split('__TITLE__')[poem].split('\n')[0] + "\">" + text.split('__TITLE__')[poem].split('\n')[0] + "</a></li>\n");
+			}
+			document.getElementById("poems").innerHTML = towrite;
+		})
+		.catch((e) => console.error(e));
+	
+	  
+  	</script>
+  </body>
+</html>
